@@ -4,6 +4,7 @@ import { Leaf } from "lucide-react";
 import { VENUE_IMAGES } from "../lib/assets";
 import { Reveal, FadeIn } from "./motion/Reveal";
 import TiltCard from "./motion/TiltCard";
+import SwipeCarousel from "./motion/SwipeCarousel";
 
 // Placeholder menu — to be replaced with real menu provided by venue.
 const COCKTAILS = [
@@ -64,7 +65,7 @@ export default function Menu() {
       ref={ref}
       id="menu"
       style={{ opacity }}
-      className="relative py-16 md:py-24 px-6 md:px-12 lg:px-16 overflow-hidden"
+      className="relative py-12 md:py-20 px-6 md:px-12 lg:px-16 overflow-hidden"
       data-testid="menu-section"
     >
       {/* Soft accent halo */}
@@ -103,9 +104,9 @@ export default function Menu() {
           </FadeIn>
         </div>
 
-        {/* Cocktails — image cards with hover zoom + tilt */}
-        <div className="mb-20">
-          <FadeIn className="flex items-center justify-between mb-8">
+        {/* Cocktails — horizontal swipe carousel */}
+        <div className="mb-12 md:mb-16">
+          <FadeIn className="flex items-center justify-between mb-6">
             <h3 className="font-serif-lux text-2xl md:text-3xl text-white">
               Signature Cocktails
             </h3>
@@ -113,19 +114,23 @@ export default function Menu() {
               Bar Programme
             </span>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7" style={{ perspective: 1400 }}>
+          <SwipeCarousel
+            basis="basis-[80%] sm:basis-[55%] md:basis-[34%]"
+            gap="gap-5 md:gap-7"
+            testid="cocktails-carousel"
+          >
             {COCKTAILS.map((c, i) => (
               <motion.div
                 key={c.name}
-                initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+                initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
                 whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: 0.9, delay: i * 0.12, ease: [0.22, 0.65, 0.18, 1] }}
-                className="group"
+                transition={{ duration: 0.55, delay: i * 0.08, ease: [0.22, 0.65, 0.18, 1] }}
+                className="group h-full"
                 data-testid={`menu-cocktail-${i}`}
               >
                 <TiltCard
-                  className="relative overflow-hidden rounded-[4px] glass lift"
+                  className="relative overflow-hidden rounded-[4px] glass lift h-full"
                   glowColor="rgba(251,191,36,0.35)"
                   max={6}
                 >
@@ -135,6 +140,7 @@ export default function Menu() {
                       alt={c.name}
                       className="w-full h-full object-cover kenburns transition-transform duration-[1800ms] ease-out group-hover:scale-110"
                       loading="lazy"
+                      draggable={false}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f0e] via-[#0b0f0e]/40 to-transparent" />
                     <div className="absolute top-5 right-5 px-3 py-1.5 rounded-full glass-strong text-[10px] tracking-[0.24em] uppercase text-white/80">
@@ -154,7 +160,7 @@ export default function Menu() {
                 </TiltCard>
               </motion.div>
             ))}
-          </div>
+          </SwipeCarousel>
         </div>
 
         {/* Plates — editorial list with line reveal */}

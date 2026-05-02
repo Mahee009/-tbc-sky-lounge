@@ -65,7 +65,7 @@ export default function Events() {
       ref={ref}
       id="events"
       style={{ opacity }}
-      className="relative py-16 md:py-24 px-6 md:px-12 lg:px-16 overflow-hidden"
+      className="relative py-12 md:py-20 px-6 md:px-12 lg:px-16 overflow-hidden"
       data-testid="events-section"
     >
       <motion.div style={{ y: yShift }} className="max-w-[1400px] mx-auto">

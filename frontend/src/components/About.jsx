@@ -21,7 +21,7 @@ export default function About() {
       ref={ref}
       id="about"
       style={{ scale: sectionScale, opacity: sectionOpacity }}
-      className="relative py-16 md:py-24 px-6 md:px-12 lg:px-16 overflow-hidden bg-noise"
+      className="relative py-12 md:py-20 px-6 md:px-12 lg:px-16 overflow-hidden bg-noise"
       data-testid="about-section"
     >
       {/* Floating leaf decoratives */}

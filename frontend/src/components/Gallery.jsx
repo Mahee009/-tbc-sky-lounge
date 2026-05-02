@@ -3,12 +3,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { X, ChevronLeft, ChevronRight, Expand } from "lucide-react";
 import { VENUE_IMAGES } from "../lib/assets";
 import { Reveal, FadeIn } from "./motion/Reveal";
-
-function distributeColumns(items, cols) {
-  const out = Array.from({ length: cols }, () => []);
-  items.forEach((item, i) => out[i % cols].push(item));
-  return out;
-}
+import SwipeCarousel from "./motion/SwipeCarousel";
 
 export default function Gallery() {
   const ref = useRef(null);
@@ -49,15 +44,12 @@ export default function Gallery() {
     };
   }, [active, close, next, prev]);
 
-  const cols = distributeColumns(VENUE_IMAGES, 3);
-  const colsMobile = distributeColumns(VENUE_IMAGES, 2);
-
   return (
     <motion.section
       ref={ref}
       id="gallery"
       style={{ opacity }}
-      className="relative py-16 md:py-24 px-6 md:px-12 lg:px-16 overflow-hidden"
+      className="relative py-12 md:py-20 px-6 md:px-12 lg:px-16 overflow-hidden"
       data-testid="gallery-section"
     >
       <motion.div style={{ y: yShift }} className="max-w-[1500px] mx-auto">
@@ -92,51 +84,29 @@ export default function Gallery() {
           </FadeIn>
         </div>
 
-        {/* Masonry — desktop 3 cols, tablet 2 cols, mobile 2 cols compact */}
-        <div className="hidden md:grid grid-cols-3 gap-5">
-          {cols.map((col, ci) => (
-            <div key={ci} className="flex flex-col gap-5">
-              {col.map((img, idx) => {
-                const realIndex = VENUE_IMAGES.findIndex((v) => v.id === img.id);
-                return (
-                  <GalleryTile
-                    key={img.id}
-                    img={img}
-                    columnDelay={ci * 0.06 + idx * 0.05}
-                    onClick={() => setActive(realIndex)}
-                    testid={`gallery-tile-${realIndex}`}
-                  />
-                );
-              })}
-            </div>
+        {/* Horizontal swipe rail — same on all viewports */}
+        <SwipeCarousel
+          basis="basis-[68%] sm:basis-[42%] md:basis-[30%] lg:basis-[24%]"
+          gap="gap-3 md:gap-5"
+          testid="gallery-carousel"
+        >
+          {VENUE_IMAGES.map((img, i) => (
+            <GalleryTile
+              key={img.id}
+              img={img}
+              columnDelay={i * 0.04}
+              onClick={() => setActive(i)}
+              testid={`gallery-tile-${i}`}
+            />
           ))}
-        </div>
-
-        <div className="md:hidden grid grid-cols-2 gap-3">
-          {colsMobile.map((col, ci) => (
-            <div key={ci} className="flex flex-col gap-3">
-              {col.map((img, idx) => {
-                const realIndex = VENUE_IMAGES.findIndex((v) => v.id === img.id);
-                return (
-                  <GalleryTile
-                    key={img.id}
-                    img={img}
-                    columnDelay={ci * 0.05 + idx * 0.04}
-                    onClick={() => setActive(realIndex)}
-                    testid={`gallery-tile-${realIndex}`}
-                  />
-                );
-              })}
-            </div>
-          ))}
-        </div>
+        </SwipeCarousel>
 
         <FadeIn
-          delay={0.2}
-          className="mt-12 flex items-center justify-between text-[11px] tracking-[0.28em] uppercase text-white/45"
+          delay={0.1}
+          className="mt-8 flex items-center justify-between text-[11px] tracking-[0.28em] uppercase text-white/45"
         >
           <span data-testid="gallery-count">
-            {VENUE_IMAGES.length} captured · more coming soon
+            {VENUE_IMAGES.length} captured · drag to explore
           </span>
           <span className="hidden sm:inline">@tbc.skylounge</span>
         </FadeIn>

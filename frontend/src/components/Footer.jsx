@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer
       id="visit"
-      className="relative pt-16 md:pt-24 pb-10 px-6 md:px-12 lg:px-16 overflow-hidden border-t border-white/[0.06] bg-[#0a0d0c]"
+      className="relative pt-12 md:pt-20 pb-8 px-6 md:px-12 lg:px-16 overflow-hidden border-t border-white/[0.06] bg-[#0a0d0c]"
       data-testid="footer-section"
     >
       {/* Decorative big serif word */}
