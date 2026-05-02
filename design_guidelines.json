@@ -1,0 +1,131 @@
+{
+  "theme_and_archetype": {
+    "theme": "dark",
+    "archetype": "5 (Jewel & Luxury)",
+    "description": "Premium rooftop nightlife experience combining urban luxury, natural greenery, ambient lighting, and modern architecture. Editorial and cinematic feel."
+  },
+  "color_system": {
+    "background_primary": "#0B0F0E",
+    "background_secondary": "#111827",
+    "surface": "rgba(255,255,255,0.04)",
+    "accent_green": "#22C55E",
+    "accent_gold": "#FBBF24",
+    "accent_blue": "#38BDF8",
+    "text_primary": "#E5E7EB",
+    "text_secondary": "#9CA3AF"
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Cormorant Garamond, serif",
+      "description": "Editorial luxury serif for high-end cinematic feel. Use for Hero title and section headers.",
+      "weights": ["300", "400", "600"],
+      "tracking": "tracking-tight"
+    },
+    "body": {
+      "font_family": "Outfit, sans-serif",
+      "description": "Modern, legible sans-serif for UI elements, menus, form labels, and paragraphs.",
+      "weights": ["300", "400", "500"]
+    }
+  },
+  "layout_and_spacing": {
+    "philosophy": "Cinematic and editorial. Avoid standard center-aligned Bootstrap rows. Use asymmetrical overlapping grids and generous whitespace.",
+    "container_padding": "px-6 md:px-12 lg:px-24 py-20 md:py-32",
+    "glassmorphism": {
+      "surface_classes": "bg-white/[0.04] backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]",
+      "hover_classes": "hover:bg-white/[0.08] hover:border-white/20 transition-all duration-300"
+    }
+  },
+  "motion": {
+    "scroll": "Smooth scroll using framer-motion or lenis with parallax depth layers on greenery images.",
+    "hover_effects": "Hover glow borders on cards and buttons. Example: shadow-[0_0_20px_rgba(251,191,36,0.3)] for gold, or green glow.",
+    "animations": "Subtle floating animations on decorative leaf elements or light flares."
+  },
+  "sections": [
+    {
+      "name": "Hero",
+      "layout": "Fullscreen 100vh with relative/absolute positioning.",
+      "elements": "Muted loop autoplay video background without controls. Gradient overlay (`bg-gradient-to-b from-black/40 via-black/20 to-[#0B0F0E]`) to ensure text readability. Bold serif title 'To Be Continued Sky Lounge', sans-serif subtext 'A rooftop escape above Bangalore'. CTAs: 'Reserve Table' (Solid Gold/Green) and 'Explore Experience' (Glass Outline).",
+      "data_testid": "hero-section"
+    },
+    {
+      "name": "About",
+      "layout": "Story-driven narrative layout. Asymmetric 2-column.",
+      "elements": "Text left-aligned with drop cap or large typography. Parallax floating greenery images overlapping the text container.",
+      "data_testid": "about-section"
+    },
+    {
+      "name": "Experience",
+      "layout": "Bento grid or alternating zig-zag cards.",
+      "elements": "Categories: Rooftop dining, DJ nights, cocktails, sunset lounge, private tables. Glassmorphism cards with hover glow borders (Gold/Green transitions).",
+      "data_testid": "experience-section"
+    },
+    {
+      "name": "Menu",
+      "layout": "Elegant grid (2-3 columns).",
+      "elements": "Placeholder food/cocktail items. Image hover zoom (scale-105 on group-hover) wrapped in overflow-hidden rounded containers.",
+      "data_testid": "menu-section"
+    },
+    {
+      "name": "Gallery",
+      "layout": "Masonry/grid layout.",
+      "elements": "Click-to-expand lightbox functionality. Soft zoom on hover. Scroll reveal animations (Framer Motion).",
+      "data_testid": "gallery-section"
+    },
+    {
+      "name": "Reservation",
+      "layout": "Minimalist centered card layout in glassmorphism container.",
+      "elements": "Display-only luxury booking form (Date, Time, Guests). Custom styled inputs matching glassmorphism theme. No backend integration needed.",
+      "data_testid": "reservation-section"
+    },
+    {
+      "name": "Footer",
+      "layout": "Massive py-32 footer.",
+      "elements": "Bangalore address: 5th Floor, Berry's Hotel, Marathahalli-Sarjapur ORR, Kadubeesanahalli, Bengaluru 560103. Phone: +917624959444. Instagram: @tbc.skylounge. Links with subtle hover glow.",
+      "data_testid": "footer-section"
+    }
+  ],
+  "media_assets": {
+    "instructions_to_main_agent": "CRITICAL: Check the workspace for real venue assets (4 rooftop interior photos, 1 cinematic video clip). If found, USE THEM directly. The URLs below are FALLBACKS only.",
+    "hero_video": {
+      "fallback_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+      "notes": "Replace with the provided cinematic video clip."
+    },
+    "images": [
+      {
+        "category": "rooftop_lounge",
+        "url": "https://images.unsplash.com/photo-1750672831807-02188adaa7b0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxyb29mdG9wJTIwZ2FyZGVuJTIwbG91bmdlJTIwbmlnaHR8ZW58MHx8fHwxNzc3NzI5MjU0fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Cozy outdoor seating with warm lighting"
+      },
+      {
+        "category": "rooftop_lounge",
+        "url": "https://images.unsplash.com/photo-1621275471769-e6aa344546d5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxyb29mdG9wJTIwZ2FyZGVuJTIwbG91bmdlJTIwbmlnaHR8ZW58MHx8fHwxNzc3NzI5MjU0fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Elegant wooden tables and chairs set"
+      },
+      {
+        "category": "cocktails",
+        "url": "https://images.unsplash.com/photo-1774921677082-1e29b476472e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTN8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBjb2NrdGFpbCUyMGRhcmt8ZW58MHx8fHwxNzc3NzI5MjUzfDA&ixlib=rb-4.1.0&q=85",
+        "description": "A cocktail with fruit slice on a marble table"
+      },
+      {
+        "category": "cocktails",
+        "url": "https://images.unsplash.com/photo-1774806270948-4edf892c20b7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTN8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBjb2NrdGFpbCUyMGRhcmt8ZW58MHx8fHwxNzc3NzI5MjUzfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Smoked cocktail with lime under glass dome"
+      },
+      {
+        "category": "dj_night",
+        "url": "https://images.unsplash.com/photo-1695128708405-f9a4b1b6435f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwyfHxkaiUyMG5pZ2h0JTIwY2x1YiUyMHJvb2Z0b3B8ZW58MHx8fHwxNzc3NzI5MjU0fDA&ixlib=rb-4.1.0&q=85",
+        "description": "DJ night under canopy at rooftop"
+      }
+    ]
+  },
+  "component_instructions": {
+    "forms": "Use highly customized forms. Strip default borders, apply glassmorphism: `bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-[#22C55E]`.",
+    "buttons": "Primary: `bg-[#22C55E] text-[#0B0F0E] hover:bg-[#22C55E]/90 hover:shadow-[0_0_20px_rgba(34,197,94,0.4)]`. Secondary: `bg-white/[0.04] border border-white/20 text-white hover:bg-white/10`.",
+    "icons": "Use lucide-react for minimal, elegant line icons.",
+    "gallery_lightbox": "Implement with Framer Motion `AnimatePresence` or similar to feel native and premium. Must not feel like a cheap plugin."
+  },
+  "accessibility": {
+    "contrast": "Must have gradient overlays under text resting on background videos/images.",
+    "focus": "All interactive elements must use focus-visible states highlighting with the accent green (#22C55E) or gold (#FBBF24)."
+  }
+}
