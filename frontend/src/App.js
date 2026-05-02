@@ -8,7 +8,9 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Experience from "./components/Experience";
 import Menu from "./components/Menu";
+import Events from "./components/Events";
 import Gallery from "./components/Gallery";
+import Reviews from "./components/Reviews";
 import Reservation from "./components/Reservation";
 import Footer from "./components/Footer";
 
@@ -22,7 +24,9 @@ function HomePage() {
         <About />
         <Experience />
         <Menu />
+        <Events />
         <Gallery />
+        <Reviews />
         <Reservation />
       </main>
       <Footer />

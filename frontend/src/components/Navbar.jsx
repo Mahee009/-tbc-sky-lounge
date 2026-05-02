@@ -7,7 +7,9 @@ const SECTIONS = [
   { id: "about", label: "About" },
   { id: "experience", label: "Experience" },
   { id: "menu", label: "Menu" },
+  { id: "events", label: "Events" },
   { id: "gallery", label: "Gallery" },
+  { id: "reviews", label: "Reviews" },
   { id: "reserve", label: "Reserve" },
   { id: "visit", label: "Visit" },
 ];
@@ -92,7 +94,7 @@ export default function Navbar() {
           </a>
           <button
             onClick={() => handleNav("reserve")}
-            className="btn-lux hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#22C55E] text-[#0b0f0e] text-[11.5px] font-medium tracking-[0.22em] uppercase hover:shadow-[0_0_28px_rgba(34,197,94,0.55)]"
+            className="btn-lux pulse-green hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#22C55E] text-[#0b0f0e] text-[11.5px] font-medium tracking-[0.22em] uppercase hover:shadow-[0_0_28px_rgba(34,197,94,0.55)]"
             data-testid="nav-reserve"
           >
             Reserve

@@ -101,7 +101,7 @@ export default function Hero() {
         <div className="flex-1 flex items-center px-6 md:px-12 lg:px-16">
           <div className="max-w-5xl">
             <h1
-              className="font-serif-lux text-white text-[14vw] sm:text-[11vw] md:text-[8.5vw] lg:text-[7.5vw] leading-[0.92] tracking-[-0.02em] text-balance"
+              className="font-serif-lux text-white text-[18vw] sm:text-[12vw] md:text-[8.5vw] lg:text-[7.5vw] leading-[0.9] tracking-[-0.02em] text-balance"
               data-testid="hero-title"
             >
               <Reveal as="span" text="To Be" stagger={0.08} delay={0.4} />
@@ -120,11 +120,13 @@ export default function Hero() {
               delay={1.55}
               y={20}
               blur={6}
-              className="mt-8 max-w-xl font-sans-lux text-base md:text-lg text-white/75 leading-relaxed text-pretty"
+              className="mt-6 sm:mt-8 max-w-xl font-serif-lux text-2xl sm:text-3xl md:text-4xl text-white/85 leading-[1.25] text-pretty"
               data-testid="hero-subtitle"
             >
-              {VENUE.tagline} — a garden in the sky where lush canopies, warm
-              amber light and the city skyline meet for evenings worth pausing.
+              Come, Drink, Eat.
+              <br />
+              <span className="text-white/55">The rest is </span>
+              <span className="italic text-[#FBBF24]/95">to be continued…</span>
             </FadeIn>
 
             <FadeIn
@@ -135,7 +137,7 @@ export default function Hero() {
             >
               <button
                 onClick={() => scrollTo("reserve")}
-                className="btn-lux group inline-flex items-center gap-3 px-7 py-4 rounded-full bg-[#22C55E] text-[#0b0f0e] text-[12px] font-medium tracking-[0.26em] uppercase shadow-[0_0_0_0_rgba(34,197,94,0)] hover:shadow-[0_0_44px_rgba(34,197,94,0.55)]"
+                className="btn-lux pulse-green group inline-flex items-center gap-3 px-7 py-4 rounded-full bg-[#22C55E] text-[#0b0f0e] text-[12px] font-medium tracking-[0.26em] uppercase hover:shadow-[0_0_44px_rgba(34,197,94,0.55)]"
                 data-testid="hero-cta-reserve"
               >
                 Reserve a Table

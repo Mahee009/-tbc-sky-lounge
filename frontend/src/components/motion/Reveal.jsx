@@ -2,24 +2,23 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Children, cloneElement, isValidElement } from "react";
 
 /**
- * Reveal — staggered word reveal for headings and text.
- * Splits the given string into words & letters with a curtain-rise animation.
+ * Reveal — staggered word/character reveal with cinematic 3D rotateX cascade.
+ * Each token rises from below with a slight 3D rotation and blur — designed to
+ * feel like text being "written into space" rather than a simple fade-in.
  *
  * Props:
- *  - as: tag (e.g., "h1" | "h2" | "p" | "span"). Default "span".
- *  - text: the string to animate (preferred over children for splitting).
+ *  - as: tag name. Default "span".
+ *  - text: the string to animate.
  *  - by: "word" | "char" — default "word".
- *  - delay: base delay in seconds.
- *  - stagger: per-token stagger.
- *  - className: applied to wrapper.
- *  - once: viewport once (default true).
+ *  - delay, stagger, duration, className, once
  */
 export function Reveal({
   as: Tag = "span",
   text = "",
   by = "word",
   delay = 0,
-  stagger = 0.06,
+  stagger = 0.05,
+  duration = 0.95,
   className = "",
   once = true,
   ...rest
@@ -43,28 +42,36 @@ export function Reveal({
       whileInView="show"
       viewport={{ once, margin: "-15% 0px -15% 0px" }}
       transition={{ staggerChildren: stagger, delayChildren: delay }}
+      style={{ perspective: 800 }}
       {...rest}
     >
       {tokens.map((tok, i) => (
         <span
           key={i}
           className="inline-block overflow-hidden align-baseline"
-          style={{ paddingBottom: "0.08em" }}
+          style={{ paddingBottom: "0.12em" }}
         >
           <motion.span
             className="inline-block will-change-transform"
             variants={{
-              hidden: { y: "115%", opacity: 0, rotate: 4 },
+              hidden: {
+                y: "118%",
+                opacity: 0,
+                rotateX: -55,
+                filter: "blur(8px)",
+              },
               show: {
                 y: "0%",
                 opacity: 1,
-                rotate: 0,
+                rotateX: 0,
+                filter: "blur(0px)",
                 transition: {
-                  duration: 0.9,
+                  duration,
                   ease: [0.22, 0.65, 0.18, 1],
                 },
               },
             }}
+            style={{ transformOrigin: "50% 100%" }}
           >
             {tok === " " ? "\u00A0" : tok}
             {by === "word" && i < tokens.length - 1 ? "\u00A0" : ""}
@@ -76,14 +83,14 @@ export function Reveal({
 }
 
 /**
- * FadeIn — soft fade + lift for paragraphs and groups.
+ * FadeIn — soft fade + lift + blur for paragraphs and groups.
  */
 export function FadeIn({
   children,
   delay = 0,
   y = 24,
-  duration = 0.9,
-  blur = 6,
+  duration = 1.0,
+  blur = 8,
   className = "",
   once = true,
   as: Tag = "div",
@@ -113,8 +120,51 @@ export function FadeIn({
 }
 
 /**
- * StaggerGroup — orchestrates child reveals.
+ * Typewriter — cursor-led character cascade (for hero subtitles or eyebrows).
  */
+export function Typewriter({
+  text = "",
+  delay = 0,
+  speed = 0.025,
+  className = "",
+  cursor = true,
+}) {
+  const reduce = useReducedMotion();
+  if (reduce) return <span className={className}>{text}</span>;
+  const chars = Array.from(text);
+  return (
+    <motion.span
+      className={`inline-block ${className}`}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{ staggerChildren: speed, delayChildren: delay }}
+      aria-label={text}
+    >
+      {chars.map((c, i) => (
+        <motion.span
+          key={i}
+          variants={{
+            hidden: { opacity: 0 },
+            show: { opacity: 1, transition: { duration: 0.05 } },
+          }}
+        >
+          {c === " " ? "\u00A0" : c}
+        </motion.span>
+      ))}
+      {cursor && (
+        <motion.span
+          aria-hidden
+          initial={{ opacity: 1 }}
+          animate={{ opacity: [1, 0, 1] }}
+          transition={{ duration: 0.9, repeat: Infinity, ease: "linear" }}
+          className="inline-block w-[1px] h-[0.9em] bg-current align-middle ml-1"
+        />
+      )}
+    </motion.span>
+  );
+}
+
 export function StaggerGroup({
   children,
   stagger = 0.12,

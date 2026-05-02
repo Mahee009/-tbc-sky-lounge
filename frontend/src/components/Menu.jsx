@@ -11,19 +11,19 @@ const COCKTAILS = [
     name: "Skyline Spritz",
     desc: "Aperol, Prosecco, fresh basil, soda — the city in a glass.",
     price: "₹ —",
-    img: VENUE_IMAGES[6].src,
+    img: "/media/cocktail-1.png",
   },
   {
     name: "Garden Negroni",
     desc: "Botanical gin, Campari, sweet vermouth, rooftop rosemary.",
     price: "₹ —",
-    img: VENUE_IMAGES[4].src,
+    img: "/media/cocktail-2.png",
   },
   {
     name: "TBC Smoke",
     desc: "Mezcal, smoked pineapple, lime, agave — finished tableside.",
     price: "₹ —",
-    img: VENUE_IMAGES[1].src,
+    img: VENUE_IMAGES[4].src,
   },
 ];
 
