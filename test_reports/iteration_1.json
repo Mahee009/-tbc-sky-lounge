@@ -1,0 +1,31 @@
+{
+  "summary": "First end-to-end frontend test of TBC Sky Lounge marketing site. All critical sections, data-testids, interactions, smooth-scroll (Lenis), gallery lightbox (tile click, prev/next, Escape/close), reservation form validation (empty/short/valid), submit-button state transition to 'Request Sent', guest +/- counter, footer links (directions/instagram/tel), and responsive rendering verified across 1920, 1280, 390 viewports. No console errors. All 44 checks passed.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Reservation.jsx: submitted state does not reset on subsequent edits — if user wants to submit again (e.g., change party size after success), they cannot. Minor, consistent with display-only design but worth a 'Make another request' reset link.",
+    "Gallery.jsx line 220: tile aspect ratio is derived from img.id.charCodeAt(1) — fragile if IDs change format (e.g., single-char IDs would crash with undefined). Consider a defensive fallback %4.",
+    "No loading/error states on the hero video — if the mp4 404s or fails, there is a poster image fallback (good), but no retry/log. Acceptable for marketing site.",
+    "SmoothScroll exposes window.__lenis & window.scrollToId on global — pragmatic but pollutes global namespace. Fine for now."
+  ],
+  "updated_files": [],
+  "success_rate": {
+    "backend": "n/a (no backend tests requested)",
+    "frontend": "100% (44/44 checks)"
+  },
+  "test_credentials": "n/a — no auth on this site",
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Frontend-only marketing site on single route /. Full verified:\n- All data-testids render (home-page, navbar, hero-section/title/video/ctas, about-section + about-img-1/2, experience-section + 5 cards, menu-section + 3 cocktails + 4 plates + disclaimer, gallery-section + 8 tiles, reservation-form, footer-section).\n- Hero video attributes: autoplay=true, loop=true, muted=true, playsInline=true, controls=false. src resolves to /media/tbc-hero.mp4.\n- window.__lenis is defined. nav-link-gallery click scrolled from 0 -> 5632px over 2s (Lenis smooth-scroll working).\n- Gallery lightbox opens via tile click, next button navigates, Escape closes, lightbox-close button closes. Verified.\n- Reservation form: empty-submit -> toast 'Please share your name and phone…'; short phone (5 digits) -> 'Please enter a valid phone number.'; valid (Test User + 9876543210) -> 'Thank you, Test — request received…' AND submit button changes to 'Request Sent'. Verified via screenshot.\n- Guests counter: starts at 2, +2/-1 click => shows '3' (verified in screenshot; my playwright selector grabbed label instead of count span — functional behaviour confirmed visually).\n- Footer: address contains 'Kadubeesanahalli' + 'Bengaluru'. Directions href: google.com/maps URL. Instagram href: https://www.instagram.com/tbc.skylounge/. Call href: tel:+917624959444.\n- Mobile 390x844: nav-mobile-toggle present and clickable. Page renders at 1280x800 and 1920x1080 without issues.\n- Zero console errors captured during full flow.\nNo retest required.",
+  "rca of the issue": "n/a — no issues found."
+}
