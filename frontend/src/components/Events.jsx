@@ -65,12 +65,12 @@ export default function Events() {
       ref={ref}
       id="events"
       style={{ opacity }}
-      className="relative py-28 md:py-44 px-6 md:px-12 lg:px-16 overflow-hidden"
+      className="relative py-16 md:py-24 px-6 md:px-12 lg:px-16 overflow-hidden"
       data-testid="events-section"
     >
       <motion.div style={{ y: yShift }} className="max-w-[1400px] mx-auto">
         {/* Heading */}
-        <div className="grid grid-cols-12 gap-6 items-end mb-14 md:mb-20">
+        <div className="grid grid-cols-12 gap-6 items-end mb-10 md:mb-14">
           <div className="col-span-12 md:col-span-7">
             <FadeIn className="flex items-center gap-3 text-[11px] tracking-[0.36em] uppercase text-[#38BDF8]">
               <span className="w-10 h-px bg-[#38BDF8]/60" />

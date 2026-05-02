@@ -77,7 +77,7 @@ export default function Hero() {
         {/* Top corner — eyebrow */}
         <div className="pt-28 px-6 md:px-12 lg:px-16 flex items-center justify-between">
           <FadeIn
-            delay={0.4}
+            delay={0.15}
             blur={4}
             y={-6}
             className="flex items-center gap-3 text-[11px] tracking-[0.32em] uppercase text-white/60"
@@ -87,7 +87,7 @@ export default function Hero() {
             EST · ROOFTOP · BENGALURU
           </FadeIn>
           <FadeIn
-            delay={0.6}
+            delay={0.25}
             blur={4}
             y={-4}
             className="hidden md:flex items-center gap-2 text-[11px] tracking-[0.28em] uppercase text-white/55"
@@ -104,20 +104,20 @@ export default function Hero() {
               className="font-serif-lux text-white text-[18vw] sm:text-[12vw] md:text-[8.5vw] lg:text-[7.5vw] leading-[0.9] tracking-[-0.02em] text-balance"
               data-testid="hero-title"
             >
-              <Reveal as="span" text="To Be" stagger={0.08} delay={0.4} />
+              <Reveal as="span" text="To Be" stagger={0.05} delay={0.2} />
               <br />
               <Reveal
                 as="span"
                 text="Continued."
                 by="char"
-                stagger={0.04}
-                delay={0.9}
+                stagger={0.025}
+                delay={0.5}
                 className="italic font-light text-[#FBBF24]/95"
               />
             </h1>
 
             <FadeIn
-              delay={1.55}
+              delay={0.85}
               y={20}
               blur={6}
               className="mt-6 sm:mt-8 max-w-xl font-serif-lux text-2xl sm:text-3xl md:text-4xl text-white/85 leading-[1.25] text-pretty"
@@ -130,7 +130,7 @@ export default function Hero() {
             </FadeIn>
 
             <FadeIn
-              delay={1.8}
+              delay={1.0}
               y={16}
               blur={4}
               className="mt-10 flex flex-wrap items-center gap-4"
@@ -156,7 +156,7 @@ export default function Hero() {
 
         {/* Bottom strip */}
         <FadeIn
-          delay={2.2}
+          delay={1.2}
           y={12}
           className="px-6 md:px-12 lg:px-16 pb-10 flex items-end justify-between"
           data-testid="hero-bottom"

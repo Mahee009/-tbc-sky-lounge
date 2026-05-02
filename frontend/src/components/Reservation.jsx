@@ -67,7 +67,7 @@ export default function Reservation() {
       ref={ref}
       id="reserve"
       style={{ opacity }}
-      className="relative py-28 md:py-44 px-6 md:px-12 lg:px-16 overflow-hidden"
+      className="relative py-16 md:py-24 px-6 md:px-12 lg:px-16 overflow-hidden"
       data-testid="reservation-section"
     >
       {/* Glow */}

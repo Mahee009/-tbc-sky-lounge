@@ -17,8 +17,8 @@ export function Reveal({
   text = "",
   by = "word",
   delay = 0,
-  stagger = 0.05,
-  duration = 0.95,
+  stagger = 0.03,
+  duration = 0.55,
   className = "",
   once = true,
   ...rest
@@ -57,8 +57,8 @@ export function Reveal({
               hidden: {
                 y: "118%",
                 opacity: 0,
-                rotateX: -55,
-                filter: "blur(8px)",
+                rotateX: -45,
+                filter: "blur(6px)",
               },
               show: {
                 y: "0%",
@@ -88,9 +88,9 @@ export function Reveal({
 export function FadeIn({
   children,
   delay = 0,
-  y = 24,
-  duration = 1.0,
-  blur = 8,
+  y = 18,
+  duration = 0.55,
+  blur = 5,
   className = "",
   once = true,
   as: Tag = "div",

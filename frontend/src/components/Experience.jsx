@@ -67,12 +67,12 @@ export default function Experience() {
       ref={ref}
       id="experience"
       style={{ opacity }}
-      className="relative py-28 md:py-44 px-6 md:px-12 lg:px-16 overflow-hidden"
+      className="relative py-16 md:py-24 px-6 md:px-12 lg:px-16 overflow-hidden"
       data-testid="experience-section"
     >
       <motion.div style={{ y: yShift }} className="max-w-[1400px] mx-auto">
         {/* Heading row */}
-        <div className="grid grid-cols-12 gap-6 items-end mb-14 md:mb-20">
+        <div className="grid grid-cols-12 gap-6 items-end mb-10 md:mb-14">
           <div className="col-span-12 lg:col-span-7">
             <FadeIn
               y={12}

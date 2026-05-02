@@ -6,7 +6,7 @@ import Lenis from "lenis";
 export default function SmoothScroll() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.25,
+      duration: 0.85,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       smoothTouch: false,
@@ -29,7 +29,7 @@ export default function SmoothScroll() {
       const el = id ? document.getElementById(id) : null;
       if (el) {
         e.preventDefault();
-        lenis.scrollTo(el, { offset: 0, duration: 1.4 });
+        lenis.scrollTo(el, { offset: 0, duration: 0.95 });
       }
     };
     document.addEventListener("click", onClick);
@@ -38,7 +38,7 @@ export default function SmoothScroll() {
     window.__lenis = lenis;
     window.scrollToId = (id) => {
       const el = document.getElementById(id);
-      if (el) lenis.scrollTo(el, { offset: 0, duration: 1.4 });
+      if (el) lenis.scrollTo(el, { offset: 0, duration: 0.95 });
     };
 
     return () => {

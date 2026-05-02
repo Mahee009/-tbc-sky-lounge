@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer
       id="visit"
-      className="relative pt-28 md:pt-40 pb-10 px-6 md:px-12 lg:px-16 overflow-hidden border-t border-white/[0.06] bg-[#0a0d0c]"
+      className="relative pt-16 md:pt-24 pb-10 px-6 md:px-12 lg:px-16 overflow-hidden border-t border-white/[0.06] bg-[#0a0d0c]"
       data-testid="footer-section"
     >
       {/* Decorative big serif word */}
@@ -23,7 +23,7 @@ export default function Footer() {
 
       <div className="relative max-w-[1400px] mx-auto">
         {/* Top — invitation line */}
-        <div className="grid grid-cols-12 gap-6 mb-16 md:mb-24">
+        <div className="grid grid-cols-12 gap-6 mb-10 md:mb-16">
           <div className="col-span-12 md:col-span-8">
             <h3 className="font-serif-lux text-4xl md:text-6xl lg:text-7xl text-white leading-[0.95] tracking-[-0.02em] text-balance">
               <Reveal text="See you" />

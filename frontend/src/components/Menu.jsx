@@ -10,19 +10,19 @@ const COCKTAILS = [
   {
     name: "Skyline Spritz",
     desc: "Aperol, Prosecco, fresh basil, soda — the city in a glass.",
-    price: "₹ —",
+    price: "₹ 475",
     img: "/media/cocktail-1.png",
   },
   {
     name: "Garden Negroni",
     desc: "Botanical gin, Campari, sweet vermouth, rooftop rosemary.",
-    price: "₹ —",
+    price: "₹ 525",
     img: "/media/cocktail-2.png",
   },
   {
     name: "TBC Smoke",
     desc: "Mezcal, smoked pineapple, lime, agave — finished tableside.",
-    price: "₹ —",
+    price: "₹ 595",
     img: VENUE_IMAGES[4].src,
   },
 ];
@@ -31,18 +31,22 @@ const PLATES = [
   {
     name: "Charred Aubergine",
     desc: "Wood-grilled, miso glaze, sesame, rooftop microgreens.",
+    price: "₹ 345",
   },
   {
     name: "Truffle Shroom Bao",
     desc: "Steamed bao, wild mushrooms, black truffle aioli.",
+    price: "₹ 425",
   },
   {
     name: "Burrata · Garden Tomato",
     desc: "Heirloom tomato, basil oil, balsamic pearls, sourdough.",
+    price: "₹ 485",
   },
   {
     name: "Mangalore Prawns",
     desc: "Coastal masala, curry leaves, butter-toasted bun.",
+    price: "₹ 495",
   },
 ];
 
@@ -60,7 +64,7 @@ export default function Menu() {
       ref={ref}
       id="menu"
       style={{ opacity }}
-      className="relative py-28 md:py-44 px-6 md:px-12 lg:px-16 overflow-hidden"
+      className="relative py-16 md:py-24 px-6 md:px-12 lg:px-16 overflow-hidden"
       data-testid="menu-section"
     >
       {/* Soft accent halo */}
@@ -70,7 +74,7 @@ export default function Menu() {
       />
 
       <div className="max-w-[1400px] mx-auto relative">
-        <div className="grid grid-cols-12 gap-6 items-end mb-16">
+        <div className="grid grid-cols-12 gap-6 items-end mb-10 md:mb-14">
           <div className="col-span-12 md:col-span-7">
             <FadeIn className="flex items-center gap-3 text-[11px] tracking-[0.36em] uppercase text-[#22C55E]">
               <span className="w-10 h-px bg-[#22C55E]/60" />
@@ -191,7 +195,7 @@ export default function Menu() {
                       {p.name}
                     </h4>
                     <span className="hidden sm:inline-block flex-1 mx-3 border-b border-dotted border-white/15 mb-1.5" />
-                    <span className="text-white/50 text-sm tracking-widest">₹ —</span>
+                    <span className="text-white/75 text-sm tracking-widest font-medium">{p.price}</span>
                   </div>
                   <p className="mt-1.5 text-sm text-white/60 leading-relaxed max-w-md">
                     {p.desc}

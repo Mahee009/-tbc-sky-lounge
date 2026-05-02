@@ -413,8 +413,8 @@ a,
 
   /* Tighten section vertical rhythm on mobile so content density is right */
   section {
-    padding-top: 4.5rem !important;
-    padding-bottom: 4.5rem !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
   }
   /* Hero stays full height — exclude */
   section#hero {
